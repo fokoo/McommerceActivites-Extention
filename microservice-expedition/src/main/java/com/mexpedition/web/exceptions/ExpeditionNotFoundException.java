@@ -4,9 +4,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.CONFLICT)
-public class ExpeditionExistantException extends RuntimeException {
+public class ExpeditionNotFoundException extends RuntimeException {
 
-    public ExpeditionExistantException(String message) {
+    public ExpeditionNotFoundException(String message) {
         super(message);
     }
 }

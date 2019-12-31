@@ -1,17 +1,16 @@
-package com.mexpedition2.model;
+package com.mexpedition.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Expedition {
     @Id
     @GeneratedValue
-    private int id;
-
+    private Integer id;
     private Integer idCommande;
-
     private Integer etat;
 
     public Expedition() {
@@ -22,27 +21,43 @@ public class Expedition {
         this.etat = etat;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public Expedition setId(Integer id) {
         this.id = id;
+        return this;
     }
 
     public Integer getIdCommande() {
         return idCommande;
     }
 
-    public void setIdCommande(Integer idCommande) {
+    public Expedition setIdCommande(Integer idCommande) {
         this.idCommande = idCommande;
+        return this;
     }
 
     public Integer getEtat() {
         return etat;
     }
 
-    public void setEtat(Integer etat) {
+    public Expedition setEtat(Integer etat) {
         this.etat = etat;
+        return this;
+    }
+
+    public String getEtatName() {
+        switch (this.getEtat()) {
+            case 0:
+                return "En préparation";
+            case 1:
+                return "Expediée";
+            case 2:
+                return "Livrée";
+            default:
+                return "INCONNU";
+        }
     }
 }
